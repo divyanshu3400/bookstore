@@ -1,0 +1,37 @@
+[
+    
+      {
+        "model": "core.Author",
+        "pk": 1,
+        "fields": {
+            "name": "Harishchandra Verma",
+            "bio": "Physist",
+            "dob": "1960-01-01",
+            "created_at": "2021-06-15T10:00:00Z",
+            "updated_at": "2023-07-10T15:30:00Z"
+        }
+    },
+      {
+        "model": "core.Author",
+        "pk": 2,
+        "fields": {
+            "name": "RS. Agrawal",
+            "bio": "Physist",
+            "dob": "1960-01-01",
+            "created_at": "2021-06-15T10:00:00Z",
+            "updated_at": "2023-07-10T15:30:00Z"
+        }
+    },
+      {
+        "model": "core.Author",
+        "pk": 3,
+        "fields": {
+            "name": "S Chand",
+            "bio": "Mathematician",
+            "dob": "1960-01-01",
+            "created_at": "2021-06-15T10:00:00Z",
+            "updated_at": "2023-07-10T15:30:00Z"
+        }
+    }
+    
+]
