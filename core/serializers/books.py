@@ -12,17 +12,17 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ["name"]
 
 class BookListSerializer(serializers.ModelSerializer):
-    # author = AuthSerializer(many=True)
-    # category = CategorySerializer(many=True)
+    author = AuthSerializer(many=True)
+    category = CategorySerializer(many=True)
     class Meta:
         model = Book
         fields = [
             "id",
-            # "title",
-            # "ISBN",
-            # "price",
-            # "author",
-            # "category",
+            "title",
+            "ISBN",
+            "price",
+            "author",
+            "category",
             ]
 
 class BookSerializer(serializers.ModelSerializer):

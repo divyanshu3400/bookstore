@@ -3,6 +3,8 @@ from rest_framework.permissions import AllowAny
 from ..serializers import BookSerializer,BookListSerializer,AuthSerializer,CategorySerializer
 from .base import BaseModelViewSet
 
+from rest_framework.generics import ListAPIView,RetrieveAPIView
+
 class AuthorAPIView(BaseModelViewSet):
     permission_classes = [AllowAny]
     queryset = Author.objects.all()
@@ -17,17 +19,21 @@ class CategoryAPIView(BaseModelViewSet):
     
 
 
-class BookAPIView(BaseModelViewSet):
+class BookAPIView(ListAPIView):
     permission_classes = [AllowAny]
+    serializer_class = BookListSerializer
     
     def get_queryset(self):
         qs = Book.objects.select_related("author").prefetch_related("category")
         return  qs
     
-    def get_serializer(self, *args, **kwargs):
-        if self.action == 'list':
-            return BookListSerializer
-        else:
-            return BookSerializer
         
+class BookDetailAPIView(RetrieveAPIView):
+    serializer_class = BookSerializer
+    lookup_field = 'pk'
     
+    def get_queryset(self):
+        qs = Book.objects.select_related("author").prefetch_related("category")
+        return  qs
+    
+        
